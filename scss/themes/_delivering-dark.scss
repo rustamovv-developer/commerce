@@ -1,0 +1,5 @@
+@use "../utils/variables" as var;
+
+.dark .header__title {
+    text-shadow: 5px 5px 5px red;
+}
