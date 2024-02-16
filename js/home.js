@@ -422,7 +422,7 @@ var iti = window.intlTelInput(input, {
 window.iti = iti;
 
 const userButton = document.getElementById("user-button");
-const mobileButton = document.getElementById("mobile-button");
+const mobileButton = document.querySelector(".footer__nav__center__img");
 const modal = document.getElementById("modal");
 const userName = document.querySelector(".user_info");
 
@@ -446,8 +446,6 @@ window.addEventListener("click", function (event) {
   }
 });
 
-mobileButton.addEventListener("click", openModal);
-
 function openModal() {
   modal.classList.add("show");
 }
@@ -455,6 +453,8 @@ function openModal() {
 function closeModal() {
   modal.classList.remove("show");
 }
+
+mobileButton.addEventListener("click", openModal);
 
 if (userInfo) {
   userName.textContent = userInfo.userName;

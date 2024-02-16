@@ -2062,6 +2062,12 @@ textarea {
 }
 .action__card__img {
   width: 100%;
+  height: 166px;
+}
+@media (max-width: 500px) {
+  .action__card__img {
+    height: 95px;
+  }
 }
 .action__card__reg {
   position: absolute;

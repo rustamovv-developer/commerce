@@ -165,7 +165,7 @@ var iti = window.intlTelInput(input, {
 window.iti = iti;
 
 const userButton = document.getElementById("user-button");
-const mobileButton = document.getElementById("mobile-button");
+const mobileButton = document.querySelector(".footer__nav__center__img");
 const modal = document.getElementById("modal");
 const userName = document.querySelector(".user_info");
 

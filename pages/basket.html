@@ -236,15 +236,15 @@
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <defs>
                         <mask id="eye-open">
-                          <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12V20H12H1V12Z" fill="#D9D9D9" stroke="black" stroke-width="1.5"
-                            stroke-linejoin="round" />
+                          <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12V20H12H1V12Z" fill="#D9D9D9" stroke="black"
+                            stroke-width="1.5" stroke-linejoin="round" />
                         </mask>
                         <mask id="eye-closed">
                           <path d="M1 12C1 12 5 20 12 20C19 20 23 12 23 12V20H12H1V12Z" fill="#D9D9D9" />
                         </mask>
                       </defs>
-                      <path class="lid lid--upper" d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12" stroke="currentColor" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round" />
+                      <path class="lid lid--upper" d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12" stroke="currentColor"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                       <path class="lid lid--lower" d="M1 12C1 12 5 20 12 20C19 20 23 12 23 12" stroke="currentColor"
                         stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                       <g mask="url(#eye-open)">
@@ -511,7 +511,10 @@
             <p class="footer__nav__center__text cart-quantity-mobile"></p>
             <h2 class="footer__nav__center__title">Корзина</h2>
           </a>
-          <img src="../assets/images/nav-human.png" alt="human" class="footer__nav__center__img" />
+          <div class="footer__nav__center__img">
+            <img id="mobile-button" class="mobile-only" width="45px" height="45px" style="border-radius: 50%;"
+              src="../assets/images/user.jpg" alt="user" />
+          </div>
         </div>
       </div>
     </div>
