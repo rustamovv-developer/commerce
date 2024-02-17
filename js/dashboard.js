@@ -1,30 +1,3 @@
-// loading
-
-const loading = document.getElementById("loading");
-
-const loadingDuration = 6500; // 6.5s
-
-setTimeout(() => {
-  loading.classList.add("loading-none");
-}, loadingDuration);
-
-// loading new version
-
-// const loading = document.getElementById("loading");
-
-// window.addEventListener("load", () => {
-//   document.querySelector("#loading").classList.add("loading-none")
-// })
-
-// backtop
-window.addEventListener("scroll", () => {
-  if (scrollY >= 200) {
-    document.querySelector("#backtop").classList.add("backtop-show");
-  } else {
-    document.querySelector("#backtop").classList.remove("backtop-show");
-  }
-});
-
 $(function () {
   $(".sidebar-link").click(function () {
     $(".sidebar-link").removeClass("is-active");
@@ -149,4 +122,4 @@ new Chart(ctx, {
 });
 const username = document.querySelector(".user-name");
 let pris = JSON.parse(localStorage.getItem("userInfo"));
-username.textContent = pris.userName
+username.textContent = pris.userName;
