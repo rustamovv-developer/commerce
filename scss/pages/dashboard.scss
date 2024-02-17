@@ -58,7 +58,6 @@ body {
 }
 
 .container {
-    background-color: var(--theme-bg);
     max-width: 1240px;
     max-height: 900px;
     height: 95vh;
@@ -70,6 +69,7 @@ body {
     font-weight: 500;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
     position: relative;
+    backdrop-filter: blur(10px);
 }
 
 .sidebar {
@@ -401,7 +401,7 @@ body {
     }
 
     &-blog {
-        background-image: url("../../assets/images/main-blog.jpg");
+        background-image: url("../assets/images/main-blog.jpg");
         background-size: 100%;
         background-position: center;
         background-color: #31abbd;
@@ -419,7 +419,7 @@ body {
         &+& {
             margin-left: 20px;
             width: 35%;
-            background-image: url("../../assets/images/honey.jpg");
+            background-image: url("../assets/images/honey.jpg");
             background-color: unset;
             background-position: center;
             background-size: cover;
