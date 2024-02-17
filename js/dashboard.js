@@ -147,3 +147,6 @@ new Chart(ctx, {
     },
   },
 });
+const username = document.querySelector(".user-name");
+let pris = JSON.parse(localStorage.getItem("userInfo"));
+username.textContent = pris.userName

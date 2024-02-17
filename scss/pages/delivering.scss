@@ -58,11 +58,19 @@ $pill_margin: 8px;
         position: relative;
         max-width: 326px;
 
+        @media (max-width: 450px) {
+            max-width: 160px;
+        }
+
         h1 {
             font-weight: 700;
             font-size: 64px;
             line-height: 150%;
             color: #414141;
+
+            @media (max-width:450px) {
+                font-size: 35px;
+            }
         }
 
         .amout {
@@ -74,6 +82,11 @@ $pill_margin: 8px;
             border-radius: 10px;
             color: #fff;
             font-size: 25px;
+
+            @media (max-width: 450px) {
+                font-size: 16px;
+                padding: 5px 8px;
+            }
         }
     }
 }
@@ -92,6 +105,10 @@ $pill_margin: 8px;
         display: flex;
         justify-content: space-between;
 
+        @media (max-width: 1050px) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
         gap: 40px;
 
@@ -101,6 +118,10 @@ $pill_margin: 8px;
             .user_location {
                 display: flex;
                 justify-content: space-between;
+
+                @media (max-width:500px) {
+                    flex-wrap: wrap;
+                }
 
                 div {
                     display: flex;
@@ -130,6 +151,10 @@ $pill_margin: 8px;
                 justify-content: space-between;
 
                 gap: 10px;
+
+                @media (max-width:500px) {
+                    flex-wrap: wrap;
+                }
 
                 div {
                     display: flex;
@@ -190,12 +215,23 @@ $pill_margin: 8px;
                     font-size: 24px;
                     line-height: 150%;
                     color: #414141;
+
+                    &:first-child {
+                        @media (max-width:500px) {
+                            display: none;
+                        }
+                    }
                 }
             }
 
             .delivering_time {
                 display: flex;
                 justify-content: space-between;
+
+                @media (max-width: 1050px) {
+                    width: 100%;
+                    gap: 100px;
+                }
 
 
                 .time_wrapper {
@@ -234,7 +270,7 @@ $pill_margin: 8px;
                     -webkit-transform: translate3d(0, 0, 0);
                     -moz-transform: translate3d(0, 0, 0);
                     transform: translate3d(0, 0, 0);
-                    max-width: 420px;
+                    width: 420px;
                     height: 400px;
                     overflow: hidden;
                     overflow-y: scroll;
@@ -242,6 +278,10 @@ $pill_margin: 8px;
                     box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 
                     &::-webkit-scrollbar {
+                        display: none;
+                    }
+
+                    @media (max-width: 500px) {
                         display: none;
                     }
                 }

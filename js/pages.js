@@ -399,3 +399,246 @@ togglePassword.addEventListener("click", function () {
   password.setAttribute("type", type);
   this.classList.toggle("bi-eye");
 });
+
+// micraphone
+
+searchInput.addEventListener("keyup", function () {
+  search = this.value.toLowerCase();
+  handleSearch();
+});
+
+function handleSearch() {
+  searchResult.innerHTML = "";
+
+  const filteredProducts = products.filter((element) => {
+    const { name } = element;
+    return name.toLowerCase().includes(search);
+  });
+
+  filteredProducts.forEach((element) => {
+    const { id, name, price, description, images } = element;
+    let card = document.createElement("a");
+    card.classList.add("card");
+    card.href = "#" + id;
+    card.innerHTML = `
+      <div class="img" style="background: url('${
+        images[0]
+      }') center center no-repeat;
+        background-size: cover;"></div>
+      <div class="content">
+        <div class="price_content">
+          <h1 class="category">${name}</h1>
+          <p class="price">
+            ${price} ₽
+          </p>
+          <p class="reating_search">${getRating(element.rating)}</p>
+        </div>
+        <p class="description_search">${description}</p>
+      </div>
+    `;
+    searchResult.appendChild(card);
+  });
+
+  if (filteredProducts.length > 0 && search !== "") {
+    searchResult.style.display = "flex";
+  } else {
+    searchResult.style.display = "none";
+  }
+}
+
+var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+var grammar = "#JSGF V1.0;";
+var recognition = new SpeechRecognition();
+var speechRecognitionList = new SpeechGrammarList();
+speechRecognitionList.addFromString(grammar, 1);
+recognition.grammars = speechRecognitionList;
+recognition.lang = "en-US";
+recognition.interimResults = false;
+
+recognition.onresult = function (event) {
+  var last = event.results.length - 1;
+  var command = event.results[last][0].transcript;
+  if (command == "dark") {
+    document.body.classList.add("dark");
+  } else {
+    search = command;
+    searchInput.value = command;
+    handleSearch();
+  }
+  if (command == "light") {
+    document.body.classList.remove("dark");
+  } else {
+    search = command;
+    searchInput.value = command;
+    handleSearch();
+  }
+  if (command == "open dropdown") {
+    toggleDropdown();
+  } else {
+    search = command;
+    searchInput.value = command;
+    handleSearch();
+  }
+  if (command == "close dropdown") {
+    toggleDropdown();
+  } else {
+    search = command;
+    searchInput.value = command;
+    handleSearch();
+  }
+  if (command == "go home page") {
+    if ((window.location.href = "../index.html")) {
+    } else {
+      window.open("../index.html");
+    }
+  } else {
+    search = command;
+    searchInput.value = command;
+    handleSearch();
+  }
+  if (command == "products") {
+    if ((window.location.href = "./products.html")) {
+    } else {
+      window.open("./products.html");
+    }
+  } else {
+    search = command;
+    searchInput.value = command;
+    handleSearch();
+  }
+  if (command == "favorites") {
+    if ((window.location.href = "./favorites.html")) {
+    } else {
+      window.open("./favorites.html");
+    }
+  } else {
+    search = command;
+    searchInput.value = command;
+    handleSearch();
+  }
+  if (command == "about" || command == "we") {
+    if ((window.location.href = "./about.html")) {
+    } else {
+      window.open("./about.html");
+    }
+  } else {
+    search = command;
+    searchInput.value = command;
+    handleSearch();
+  }
+  if (command == "contacts" || command == "contact") {
+    if ((window.location.href = "./contacts.html")) {
+    } else {
+      window.open("./contacts.html");
+    }
+  } else {
+    search = command;
+    searchInput.value = command;
+    handleSearch();
+  }
+  if (command == "contacts" || command == "contact") {
+    if ((window.location.href = "./contacts.html")) {
+    } else {
+      window.open("./contacts.html");
+    }
+  } else {
+    search = command;
+    searchInput.value = command;
+    handleSearch();
+  }
+  if (
+    command == "my profile" ||
+    command == "profile" ||
+    command == "dashboard"
+  ) {
+    if ((window.location.href = "./dashboard.html")) {
+    } else {
+      window.open("./dashboard.html");
+    }
+  } else {
+    search = command;
+    searchInput.value = command;
+    handleSearch();
+  }
+  if (command == "categories") {
+    if ((window.location.href = "./categories.html")) {
+    } else {
+      window.open("./categories.html");
+    }
+  } else {
+    search = command;
+    searchInput.value = command;
+    handleSearch();
+  }
+  if (command == "catalog") {
+    if ((window.location.href = "./catalog.html")) {
+    } else {
+      window.open("./catalog.html");
+    }
+  } else {
+    search = command;
+    searchInput.value = command;
+    handleSearch();
+  }
+  if (command == "basket" || command == "shopping") {
+    if ((window.location.href = "./basket.html")) {
+    } else {
+      window.open("./basket.html");
+    }
+  } else {
+    search = command;
+    searchInput.value = command;
+    handleSearch();
+  }
+};
+
+recognition.onspeechend = function () {
+  recognition.stop();
+};
+
+searchInput.addEventListener("click", function () {
+  console.log("working");
+});
+
+const btnGiveCommand = document.querySelector("#btnGiveCommand");
+let isListening = false;
+
+btnGiveCommand.addEventListener("click", function () {
+  if (isListening) {
+    stopListening();
+  } else {
+    startListening();
+  }
+});
+
+function startListening() {
+  recognition.start();
+  isListening = true;
+  btnGiveCommand.classList.add("button-active");
+}
+
+function stopListening() {
+  recognition.stop();
+  isListening = false;
+  btnGiveCommand.classList.remove("button-active");
+}
+
+recognition.onstart = function () {
+  console.log("Speech recognition started");
+};
+
+recognition.onend = function () {
+  console.log("Speech recognition ended");
+  stopListening();
+};
+
+logoutButton.addEventListener("click", logout);
+
+function logout(event) {
+  event.preventDefault();
+
+  localStorage.removeItem("userInfo");
+
+  location.reload();
+}

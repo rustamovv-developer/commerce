@@ -852,3 +852,37 @@
 .form-group button svg {
   width: 75%;
 }
+
+// micraphone
+#btnGiveCommand {
+  position: absolute;
+  background: transparent;
+  cursor: pointer;
+  z-index: 20;
+}
+
+
+@keyframes pulse-animation {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    color: var.$text-color;
+  }
+
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
+    color: var.$primary-color;
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    color: var.$text-color;
+  }
+}
+
+.button-active {
+  cursor: pointer;
+  animation: pulse-animation 1s infinite;
+}
