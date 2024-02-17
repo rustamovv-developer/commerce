@@ -696,12 +696,26 @@ textarea {
   text-align: center;
   border-radius: 5px;
   padding: 50px 35px 10px 35px;
+  overflow: hidden;
   -webkit-transform: translateY(50%);
           transform: translateY(50%);
   -webkit-transition: opacity 0.3s ease-in-out, -webkit-transform 3s ease-in-out;
   transition: opacity 0.3s ease-in-out, -webkit-transform 3s ease-in-out;
   transition: opacity 0.3s ease-in-out, transform 3s ease-in-out;
   transition: opacity 0.3s ease-in-out, transform 3s ease-in-out, -webkit-transform 3s ease-in-out;
+}
+@media (max-width: 560px) {
+  .wrapper-modal .modal {
+    max-width: 370px;
+    padding: 20px;
+    height: 470px;
+  }
+}
+@media (max-width: 400px) {
+  .wrapper-modal .modal {
+    max-width: 370px;
+    height: 370px;
+  }
 }
 .wrapper-modal .modal .img-close {
   position: absolute;
@@ -733,6 +747,11 @@ textarea {
 }
 .wrapper-modal .modal header img {
   width: 10%;
+}
+@media (max-width: 560px) {
+  .wrapper-modal .modal header {
+    display: none;
+  }
 }
 .wrapper-modal .modal .form-outer {
   width: 100%;
@@ -769,14 +788,25 @@ textarea {
   font-size: 25px;
   font-weight: 500;
 }
+@media (max-width: 400px) {
+  .wrapper-modal .form-outer form .page .title {
+    display: none;
+  }
+}
 .wrapper-modal .form-outer form .page .field {
-  width: 330px;
+  max-width: 330px;
   height: 45px;
   margin: 45px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: relative;
+}
+@media (max-width: 400px) {
+  .wrapper-modal .form-outer form .page .field {
+    height: 40px;
+    margin-top: 30px;
+  }
 }
 .wrapper-modal .field .label {
   position: absolute;
@@ -790,6 +820,11 @@ textarea {
   border-radius: 5px;
   padding-left: 15px;
   font-size: 18px;
+}
+@media (max-width: 400px) {
+  .wrapper-modal .field input {
+    width: 100%;
+  }
 }
 .wrapper-modal .field select {
   width: 100%;
@@ -837,6 +872,11 @@ textarea {
       -ms-user-select: none;
           user-select: none;
 }
+@media (max-width: 400px) {
+  .wrapper-modal .modal .progress-bar {
+    margin: 20px 0px;
+  }
+}
 .wrapper-modal .modal .progress-bar .step {
   text-align: center;
   width: 100%;
@@ -883,6 +923,13 @@ textarea {
   height: 3px;
   width: 44px;
   background: #3b3d3f;
+}
+@media (max-width: 330px) {
+  .wrapper-modal .progress-bar .step .bullet:before,
+  .wrapper-modal .progress-bar .step .bullet:after {
+    width: 30px;
+    right: -35px;
+  }
 }
 .wrapper-modal .progress-bar .step .bullet.active:after {
   background: #68ec26;
@@ -1222,33 +1269,6 @@ textarea {
   position: relative;
 }
 
-.eye circle:nth-of-type(2) {
-  fill: #ffffff;
-}
-
-.form-group button {
-  padding: 0;
-  display: grid;
-  place-items: center;
-  height: 100%;
-  aspect-ratio: 1;
-  border-radius: 12px;
-  border: 0;
-  background: -webkit-gradient(linear, left top, left bottom, from(hsl(0 0% var(--button-shade)/calc(var(--active, 0) * 0.5))), to(hsl(0 0% var(--button-shade)/calc(var(--active, 0) * 0.5)))) padding-box;
-  background: linear-gradient(hsl(0 0% var(--button-shade)/calc(var(--active, 0) * 0.5)), hsl(0 0% var(--button-shade)/calc(var(--active, 0) * 0.5))) padding-box;
-  border: 6px solid transparent;
-  -webkit-transition: background 250ms;
-  transition: background 250ms;
-  color: #70c05b;
-  position: absolute;
-  right: 0;
-  z-index: 2;
-  top: 50%;
-  cursor: pointer;
-  translate: 0 -50%;
-  outline: 0;
-}
-
 .form-group input::-moz-selection {
   background: #70c05b;
 }
@@ -1257,16 +1277,36 @@ textarea {
   background: #70c05b;
 }
 
-.form-group button:is(:focus-visible) {
-  --active: 1;
+#toggle-password {
+  width: 35px;
+  height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  font-size: 24px;
+  border-radius: 6px;
+  color: #70c05b;
+  padding: 21px;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
 }
-
-.form-group button:hover {
-  background-color: transparent;
-}
-
-.form-group button svg {
-  width: 75%;
+#toggle-password:hover {
+  background-color: rgb(200, 193, 193);
+  color: #414141;
 }
 
 .container {
@@ -1826,7 +1866,7 @@ body:before {
   top: 0;
   width: 100%;
   height: 100%;
-  background: url(../../assets/images/bg.jpg) no-repeat center/cover;
+  background: url(../assets/images/bg.jpg) no-repeat center/cover;
   content: "";
   -webkit-animation: animateBg 5s linear infinite;
           animation: animateBg 5s linear infinite;

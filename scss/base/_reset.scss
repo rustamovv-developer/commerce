@@ -524,8 +524,20 @@ textarea {
     text-align: center;
     border-radius: 5px;
     padding: 50px 35px 10px 35px;
+    overflow: hidden;
     transform: translateY(50%);
     transition: opacity 0.3s ease-in-out, transform 3s ease-in-out;
+
+    @media (max-width: 560px) {
+      max-width: 370px;
+      padding: 20px;
+      height: 470px;
+    }
+
+    @media (max-width: 400px) {
+      max-width: 370px;
+      height: 370px;
+    }
 
     .img-close {
       position: absolute;
@@ -553,6 +565,10 @@ textarea {
 
     img {
       width: 10%;
+    }
+
+    @media (max-width: 560px) {
+      display: none;
     }
 
   }
@@ -593,14 +609,23 @@ textarea {
     text-align: left;
     font-size: 25px;
     font-weight: 500;
+
+    @media (max-width: 400px) {
+      display: none;
+    }
   }
 
   .form-outer form .page .field {
-    width: 330px;
+    max-width: 330px;
     height: 45px;
     margin: 45px 0;
     display: flex;
     position: relative;
+
+    @media (max-width: 400px) {
+      height: 40px;
+      margin-top: 30px;
+    }
   }
 
   .field .label {
@@ -616,6 +641,10 @@ textarea {
     border-radius: 5px;
     padding-left: 15px;
     font-size: 18px;
+
+    @media (max-width: 400px) {
+      width: 100%;
+    }
   }
 
   .field select {
@@ -664,6 +693,10 @@ textarea {
     display: flex;
     margin: 40px 0;
     user-select: none;
+
+    @media (max-width: 400px) {
+      margin: 20px 0px;
+    }
   }
 
   .modal .progress-bar .step {
@@ -716,6 +749,11 @@ textarea {
     height: 3px;
     width: 44px;
     background: #3b3d3f;
+
+    @media (max-width:330px) {
+      width: 30px;
+      right: -35px;
+    }
   }
 
   .progress-bar .step .bullet.active:after {
@@ -1016,43 +1054,29 @@ textarea {
   position: relative;
 }
 
-.eye circle:nth-of-type(2) {
-  fill: var.$white-color;
-}
-
-.form-group button {
-  padding: 0;
-  display: grid;
-  place-items: center;
-  height: 100%;
-  aspect-ratio: 1;
-  border-radius: 12px;
-  border: 0;
-  background: linear-gradient(hsl(0 0% var(--button-shade) / calc(var(--active, 0) * 0.5)), hsl(0 0% var(--button-shade) / calc(var(--active, 0) * 0.5))) padding-box;
-  border: 6px solid transparent;
-  transition: background 250ms;
-  color: var.$secondary-color;
-  position: absolute;
-  right: 0;
-  z-index: 2;
-  top: 50%;
-  cursor: pointer;
-  translate: 0 -50%;
-  outline: 0;
-}
-
 .form-group input::selection {
   background: var.$secondary-color;
 }
 
-.form-group button:is(:focus-visible) {
-  --active: 1;
-}
+#toggle-password {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  font-size: 24px;
+  border-radius: 6px;
+  color: var.$secondary-color;
+  padding: 21px;
+  transition: all 250ms;
 
-.form-group button:hover {
-  background-color: transparent;
-}
-
-.form-group button svg {
-  width: 75%;
+  &:hover {
+    background-color: rgb(200, 193, 193);
+    color: var.$text-color;
+  }
 }
